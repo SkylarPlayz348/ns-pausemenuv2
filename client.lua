@@ -96,7 +96,9 @@ local function GetOldESX()
 end
 
 local function PauseMenu()
-    if Config.Core == "QBCore" then 
+    if Config.Core == "None" then
+        name = GetPlayerName(PlayerPedId())
+    elseif Config.Core == "QBCore" then 
         local QBCore = exports['qb-core']:GetCoreObject()
         local PlayerData = QBCore.Functions.GetPlayerData()
         name = PlayerData.charinfo.firstname.." "..PlayerData.charinfo.lastname
@@ -200,3 +202,4 @@ local function IsInPause()
     return acik or IsPauseMenuActive()
 end 
 exports('IsInPause', IsInPause)
+
